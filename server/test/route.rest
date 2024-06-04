@@ -1,0 +1,91 @@
+POST http://localhost:3000/auth/registerAccount
+Content-Type: application/json
+
+{
+<<<<<<< HEAD
+    "username": "tiansien123",
+    "email": "tiansien@gmail.com",
+    "nickname": "TSgood",
+=======
+    "username": "carrot",
+    "email": "hkr0528@gmail.com",
+    "nickname": "carroto",
+>>>>>>> 43cc2027e422653c165743550e659207f6f512df
+    "password": "123456"
+}
+
+###
+POST http://localhost:3000/auth/loginAccount
+Content-Type: application/json
+
+{
+    "email": "sherwynd123@gmail.com",
+    "password": "ggwp"
+}
+
+###
+GET http://localhost:3000/auth/getAccount
+
+###
+GET http://localhost:3000/auth/getAccount/6a3441d1-68ef-4720-ac4c-7d7b74a8738e
+Content-Type: application/json
+
+
+###
+GET http://localhost:3000/auth/getToken
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoic2hlcnd5bmQiLCJpYXQiOjE3MTY3MzUxMjAsImV4cCI6MTcxNjczODcyMH0.brlpfbC9CLXmWjl-t_aIia3i2KIM2gaLpPgQg6K3imo
+
+###
+POST http://localhost:3000/auth/refreshToken
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiJ9.dGVzdDY.TdW8dWZigBQcc2UB8eQWwQQHCiGa3pyxQ5-v_OXxY_g"
+}
+
+###
+PATCH http://localhost:3000/auth/editAccount/6648e6744cb2a3e2c0f92eea
+Content-Type: application/json
+
+{
+    "nickname": "sherwynd627",
+    "phoneNumber": "123423",
+    "description": "sD"
+}
+###
+
+DELETE http://localhost:3000/auth/deleteAccount/6578763b811a538863d71d04
+
+###
+DELETE http://localhost:3000/auth/logoutAccount
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiJ9.c2hlcnd5bmQ.WrI9wUZR6r7mhXdvmuN-PfS_8Y7RwBujEkTQLrkQvtw"
+}
+
+###
+
+POST http://localhost:3000/auth/forgotPassword
+Content-Type: application/json
+
+{
+    "email": "sherwynd123@gmail.com"
+}
+
+###
+
+GET http://localhost:3000/auth/resetPassword
+
+###
+
+POST http://localhost:3000/auth/resetPassword/1c9b16bb90c4985c04df779a4a1dc59de9f57794
+Content-Type: application/json
+
+{
+    "password": "123"
+}
+
+###
+
+GET http://localhost:3000/discover
