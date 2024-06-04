@@ -28,11 +28,16 @@ import { BlogDetails } from "../pages/blog/BlogDetail";
 import { CoachingCart } from "../pages/cart/CoachingCart.jsx";
 import CoachingUpdate from "../pages/coaching/CoachingUpdate.jsx";
 import { ResetPassword } from "../pages/auth/ResetPassword.jsx";
+import ProtectiveRoutes from "../util/ProtectiveRoutes.jsx";
 
 const routes = [
   {
     path: "/",
-    element: <App />,
+    element: (
+      <ProtectiveRoutes>
+        <App />
+      </ProtectiveRoutes>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {

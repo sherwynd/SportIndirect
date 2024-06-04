@@ -1,48 +1,30 @@
 import { NavBar } from "./components/Navbar";
 import { Outlet } from "react-router-dom";
-import { Test } from "./components/Test";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import {
-  Alert,
-  AlertTitle,
-  Collapse,
-  CssBaseline,
-  IconButton,
-} from "@mui/material";
-import { green, orange } from "@mui/material/colors";
-import * as React from "react";
-import CloseIcon from "@mui/icons-material/Close";
-import { useLocation } from "react-router-dom";
-
-const theme = createTheme({});
-
-const outerTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#dc8665",
-    },
-  },
-});
-
-const innerTheme = createTheme({
-  palette: {
-    primary: {
-      main: green[500],
-    },
-  },
-});
+import { CssBaseline } from "@mui/material";
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export default function App() {
+  const navigate = useNavigate();
   const location = useLocation();
-  const alertOpen = location.state?.alertOpen;
+  const [profile, setProfile] = useState(localStorage.getItem("profile"));
+  const [visibleSetting, setVisibleSetting] = useState(true);
+
+  useEffect(() => {
+    if (profile) return setVisibleSetting(true);
+    else navigate(`/login`);
+  }, [profile]);
+
   return (
     <>
-      {/* <ThemeProvider theme={outerTheme}> */}
-      <CssBaseline />
-      <NavBar>
-        <Outlet />
-      </NavBar>
-      {/* </ThemeProvider> */}
+      {visibleSetting && (
+        <>
+          <CssBaseline />
+          <NavBar>
+            <Outlet />
+          </NavBar>
+        </>
+      )}
     </>
   );
 }
